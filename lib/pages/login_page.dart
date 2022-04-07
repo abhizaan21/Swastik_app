@@ -30,8 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text(
                 "Upgrade your LifeStyle",
                 style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
                   fontFamily: "Hurricane",
                 ),
               )),
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text(
                 'Log In',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500, fontFamily: "Roboto"),
+                    fontWeight: FontWeight.w500, fontFamily: "Roboto",fontSize: 28),
               )),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   await firebaseAuth.signInWithEmailAndPassword(
                                       email: email, password: password);
                               if (user != null) {
-                                Navigator.pushNamed(context, "meal_detail");
+                                Navigator.pushNamed(context, "home_screen");
                               }
                             } catch (e) {
                               print(e);

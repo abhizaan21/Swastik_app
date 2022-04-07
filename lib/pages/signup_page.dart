@@ -50,7 +50,7 @@ class _SignupPageState extends State<SignupPage> {
                         "Upgrade your LifeStyle",
                         style: TextStyle(
                           fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           fontFamily: "Hurricane",
                         ),
                       ),

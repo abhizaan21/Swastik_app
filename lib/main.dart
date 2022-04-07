@@ -43,8 +43,8 @@ class IntroScreen extends StatelessWidget {
         seconds: 3,
         title: const Text(
           'Swastik, Inspire Others',
-          style: TextStyle(fontSize: 30,
-            fontWeight: FontWeight.bold,
+          style: TextStyle(fontSize: 28,
+            fontWeight:FontWeight.w600,
             fontFamily: "Hurricane",),
         ),
         image: Image.asset('assets/images/Swastik.jpg', fit: BoxFit.scaleDown),

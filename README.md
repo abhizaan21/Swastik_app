@@ -5,3 +5,6 @@ Main navigation on the landing page
 Login Page
 Services
 Payment System (Trello Link): https://trello.com/b/Cd5dsmRw/swastik-plan
+ Email: abhi21@gmail.com
+ password: 123456 to login ," This will connect the user Authentication to Firebase"
+ The work done here is pretty basic so it is still in progress
