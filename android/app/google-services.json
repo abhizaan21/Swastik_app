@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "42147182084",
+    "project_id": "swastik-38855",
+    "storage_bucket": "swastik-38855.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42147182084:android:8e9c19b06fb576b817e751",
+        "android_client_info": {
+          "package_name": "com.android.swastik_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42147182084-4vivm4s20lpbu49tv2d7vhhmvhi6756n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh42s4xTeHePm656KI7EJTqyBNPzC3HWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42147182084-4vivm4s20lpbu49tv2d7vhhmvhi6756n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
