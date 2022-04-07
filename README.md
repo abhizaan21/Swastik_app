@@ -1,16 +1,7 @@
-# swastik_app
+Swastik Fitness application It is an Ios application, where you can get training routines for different parts of the body, diet plans to get shredded, bulk or any type of transformation. It also provides daily new exrecises for new training method like HIIT method is one of the example for it. It also consists of page for personal Trainers. This is the overview description of my application. I will be using Dart as the programming language and framework is Flutter as I find it easier to build an Application for both android and IOS. (5 Milestone for my app):
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Necessary Navigation
+Main navigation on the landing page
+Login Page
+Services
+Payment System (Trello Link): https://trello.com/b/Cd5dsmRw/swastik-plan
