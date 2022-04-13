@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   await firebaseAuth.signInWithEmailAndPassword(
                                       email: email, password: password);
                               if (user != null) {
-                                Navigator.pushNamed(context, "home_screen");
+                                Navigator.pushNamed(context, "intro_screen");
                               }
                             } catch (e) {
                               print(e);

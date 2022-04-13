@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:swastik_app/pages/home_page.dart';
+import 'package:swastik_app/pages/introduction_page.dart';
 import 'package:swastik_app/pages/login_page.dart';
 import 'package:swastik_app/pages/signup_page.dart';
 
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         'login_screen': (context) => const LoginScreen(),
         'signup_page': (context) => const SignupPage(),
-        'home_screen': (context) => Home(),
+        'home_screen': (context) => const Home(),
+        'intro_screen': (context) => const IntroductionPage(),
       },
       home: const IntroScreen(),
       );

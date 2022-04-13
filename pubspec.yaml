@@ -39,7 +39,11 @@ dependencies:
   firebase_auth: ^3.3.6
   provider: ^6.0.2
   firebase_database: ^9.0.9
-  flutter_signin_button: ^2.0.0
+  syncfusion_flutter_gauges: ^20.1.48
+  line_chart: ^1.1.11
+  fl_chart: ^0.50.1
+
+
 
 
 
@@ -80,6 +84,9 @@ flutter:
 
   assets:
    - assets/images/Swastik.jpg
+   - assets/images/intro.jpg
+   - assets/images/marathon.jpg
+
 
 
 
