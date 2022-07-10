@@ -22,13 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Container(
               alignment: Alignment.center,
+              color: Colors.white,
               padding: const EdgeInsets.all(25),
               child: Image.asset('assets/images/Swastik.jpg')),
           Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(
-                "Upgrade your LifeStyle",
+                "Memories Last Forever",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w600,
@@ -39,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(
-                'Log In',
+                'Login',
                 style: TextStyle(
                     fontWeight: FontWeight.w500, fontFamily: "Roboto",fontSize: 28),
               )),
@@ -56,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           email = value;
                         },
                         decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your email')),
+                            hintText: 'Enter your email', prefixIcon: const Icon(Icons.person,color: Colors.deepPurpleAccent))),
                     const SizedBox(
                       height: 8.0,
                     ),
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           password = value;
                         },
                         decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your Password')),
+                            hintText: 'Enter your Password', prefixIcon: const Icon(Icons.lock,color: Colors.deepPurpleAccent,))),
                     const SizedBox(
                       height: 24.0,
                     ),
@@ -95,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             });
                           },
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.orange,
+                              primary: Colors.deepPurpleAccent,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0))),
                         )),

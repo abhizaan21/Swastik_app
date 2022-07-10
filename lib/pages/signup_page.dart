@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'login_page.dart';
+
 
 
 class SignupPage extends StatefulWidget {
@@ -22,7 +24,7 @@ class _SignupPageState extends State<SignupPage> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(_title),
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.deepPurpleAccent,
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -33,13 +35,14 @@ class _SignupPageState extends State<SignupPage> {
                 color: Colors.black,
               )),
         ),
+
         body: Form(
             child: SingleChildScrollView(
                 child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
                 children: [
@@ -65,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 25,
                       )
                     ],
                   ),
@@ -82,7 +85,7 @@ class _SignupPageState extends State<SignupPage> {
                                 email = value;
                               },
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Enter your email')),
+                                  hintText: 'Enter your email', prefixIcon: const Icon(Icons.person,color: Colors.deepPurpleAccent,))),
                           const SizedBox(
                             height: 8.0,
                           ),
@@ -93,7 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                                 password = value;
                               },
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Enter your Password')),
+                                  hintText: 'Enter your Password', prefixIcon: const Icon(Icons.security,color: Colors.deepPurpleAccent,) )),
                           const SizedBox(
                             height: 24.0,
                           ),
@@ -111,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
                                         .createUserWithEmailAndPassword(
                                             email: email, password: password);
                                     if (newUser != null) {
-                                      Navigator.pushNamed(context, "home_screen");
+                                      Navigator.pushNamed(context, "login_screen");
                                     }
                                   } catch (e) {
                                     print(e);
@@ -120,17 +123,37 @@ class _SignupPageState extends State<SignupPage> {
                                     showSpinner = false;
                                   });
                                 },style: ElevatedButton.styleFrom(
-                                  primary: Colors.orange,
+                                  primary: Colors.deepPurpleAccent,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20.0)))
-                              )),
-                        ]),
+                              )),Row(
+                      children: <Widget>[
+                        const Text("Don't have an account?"),
+                        TextButton(
+                          child: const Text(
+                            'Login here..',
+                            style: TextStyle(
+                                color: Colors.black,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.black),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>  const LoginScreen()),
+                            );
+                            //signup screen
+                          },
+                        )
+                      ],
+                            mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ],
-              ),
+              ),),
             ],
           ),
-        ))));
+  ])))));
   }
 }
 const kTextFieldDecoration = InputDecoration(

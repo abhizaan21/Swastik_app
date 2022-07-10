@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swastik_app/pages/home_page.dart';
-import 'package:swastik_app/ui_colors/colors.dart';
+import 'package:swastik_app/service/upload_service.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({Key? key}) : super(key: key);
@@ -10,28 +9,29 @@ class IntroductionPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image:AssetImage('assets/images/anjuli.jpg'),fit: BoxFit.cover,
+          )
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/images/intro.jpg'),
+            Image.asset('assets/images/romyschneider.jpg'),
             const SizedBox(
               height: 20,
             ),
             SizedBox(
               width: size.width * 0.75,
               child: const Text(
-                "21 Days Fitness Challenges",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                "My memories mean a lot to me, and I hold them close to my heart.",
+                style: TextStyle(color:Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Hurricane"),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              "Fitness is not a destination. It’s a way of life.",
-              style: TextStyle(color: Colors.black, height: 1.5),
             ),
             const SizedBox(
               height: 10,
@@ -41,11 +41,13 @@ class IntroductionPage extends StatelessWidget {
                 const Spacer(),
                 RawMaterialButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Home()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ImageUploads()));
                   },
                   elevation: 2.0,
-                  fillColor: UIcolor.primary,
+                  fillColor: Colors.deepPurpleAccent,
                   child: const Icon(
                     Icons.arrow_forward_ios_sharp,
                     color: Colors.white,
