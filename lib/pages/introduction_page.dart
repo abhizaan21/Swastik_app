@@ -11,7 +11,7 @@ class IntroductionPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image:AssetImage('assets/images/anjuli.jpg'),fit: BoxFit.cover,
+            image:AssetImage('assets/images/nari.jpeg'),fit: BoxFit.cover,
           )
         ),
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -27,7 +27,7 @@ class IntroductionPage extends StatelessWidget {
               width: size.width * 0.75,
               child: const Text(
                 "My memories mean a lot to me, and I hold them close to my heart.",
-                style: TextStyle(color:Colors.white,
+                style: TextStyle(color:Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Hurricane"),

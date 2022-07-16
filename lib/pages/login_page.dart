@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:swastik_app/pages/signup_page.dart';
+
+import '../textPalate.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,7 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isVisible = false;
   late String email;
   late String password;
-  bool showSpinner = false;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
   @override
@@ -22,8 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
       child: ListView(
         children: <Widget>[
           Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: const AssetImage('assets/images/nari.jpeg'),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                        Colors.black26.withOpacity(0.8),
+                        BlendMode.darken,
+                      ))),
               alignment: Alignment.center,
-              color: Colors.white,
               padding: const EdgeInsets.all(25),
               child: Image.asset('assets/images/Swastik.jpg')),
           Container(
@@ -46,126 +55,120 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.w500,
                     fontFamily: "Roboto",
                     fontSize: 28),
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    TextField(
-                        keyboardType: TextInputType.emailAddress,
-                        textAlign: TextAlign.start,
-                        onChanged: (value) {
-                          email = value;
-                        },
-                        decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your email',
-                            prefixIcon: const Icon(Icons.person,
-                                color: Colors.deepPurpleAccent))),
-                    const SizedBox(
-                      height: 8.0,
-                    ),
-                    TextField(
-                        obscureText: !_isVisible,
-                        textAlign: TextAlign.start,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                        decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your Password',
-                            prefixIcon: const Icon(Icons.security,
-                                color: Colors.deepPurpleAccent),
-                            suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _isVisible = !_isVisible;
-                                  });
-                                },
-                                icon: _isVisible
-                                    ? const Icon(
-                                        Icons.visibility,
-                                        color: Colors.black,
-                                      )
-                                    : const Icon(
-                                        Icons.visibility_off,
-                                        color: Colors.grey,
-                                      )))),
-                    const SizedBox(
-                      height: 24.0,
-                    ),
-                    Container(
-                        height: 50,
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                        child: TextButton(
-                          child: const Text('Login',
-                              style: TextStyle(color: Colors.white)),
-                          onPressed: () async {
-                            setState(() {
-                              showSpinner = true;
-                            });
-                            try {
-                              final user =
-                                  await firebaseAuth.signInWithEmailAndPassword(
-                                      email: email, password: password);
-                              if (user != null) {
-                                Navigator.pushNamed(context, "intro_screen");
-                              }
-                            } catch (e) {
-                              print(e);
-                            }
-                            setState(() {
-                              showSpinner = false;
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.deepPurpleAccent,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0))),
+              )),const SizedBox(height: 21),
+            Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: TextField(
+                    keyboardType: TextInputType.emailAddress,
+                    textAlign: TextAlign.start,
+                    onChanged: (value) {
+                      email = value;
+                    },
+                    decoration: const InputDecoration(
+                        hintText: 'Enter your email',
+                        hintStyle: kBodyText,
+                        prefixIcon: Icon(
+                          Icons.mail,
+                          color: Colors.white,
                         )),
-                    Row(
-                      children: <Widget>[
-                        const Text("Don't have an account?"),
-                        TextButton(
-                          child: const Text(
-                            'Sign up here..',
-                            style: TextStyle(
-                                color: Colors.black,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.black),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignupPage()),
-                            );
-                            //signup screen
-                          },
-                        )
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ),
-                  ]))
-        ],
-      ),
-    );
+                    style: kBodyText,
+                  ),
+                ),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[600]?.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: TextField(
+                    obscureText: !_isVisible,
+                    textAlign: TextAlign.start,
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    decoration: InputDecoration(
+                        hintText: 'Enter your Password',
+                        hintStyle: kBodyText,
+                        prefixIcon:
+                            const Icon(Icons.lock_sharp, color: Colors.white),
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _isVisible = !_isVisible;
+                              });
+                            },
+                            icon: _isVisible
+                                ? const Icon(
+                                    Icons.visibility,
+                                    color: Colors.black,
+                                  )
+                                : const Icon(
+                                    Icons.visibility_off,
+                                    color: Colors.grey,
+                                  ))),
+                    style: kBodyText,
+                  ),
+                ),
+            ]),
+            const SizedBox(
+              height: 24.0,
+            ),
+            Container(
+                height: 50,
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: ElevatedButton(
+                  child: const Text('Login',
+                      style: TextStyle(color: Colors.white,fontSize: 16)),
+                  onPressed: () async {
+                    try {
+                      final user =
+                          await firebaseAuth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                      if (user != null) {
+                        Navigator.pushNamed(context, "intro_screen");
+                      }
+                    } catch (e) {
+                      if (kDebugMode) {
+                        print(e);
+                      }
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.deepPurpleAccent,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                )),
+            Row(
+              children: <Widget>[
+                const Text("Don't have an account?"),
+                TextButton(
+                  child: const Text(
+                    'Sign up here..',
+                    style: TextStyle(
+                        color: Colors.black,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.black),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignupPage()),
+                    );
+                    //signup screen
+                  },
+                )
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          ]),
+      );
   }
 }
-
-const kTextFieldDecoration = InputDecoration(
-  hintText: 'Enter a value',
-  hintStyle: TextStyle(color: Colors.grey),
-  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-  border: OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-  enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black, width: 1.0),
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-  focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.black, width: 2.0),
-    borderRadius: BorderRadius.all(Radius.circular(32.0)),
-  ),
-);
