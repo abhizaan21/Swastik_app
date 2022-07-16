@@ -10,6 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isVisible = false;
   late String email;
   late String password;
   bool showSpinner = false;
@@ -42,7 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text(
                 'Login',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500, fontFamily: "Roboto",fontSize: 28),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "Roboto",
+                    fontSize: 28),
               )),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -52,23 +55,42 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: <Widget>[
                     TextField(
                         keyboardType: TextInputType.emailAddress,
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                         onChanged: (value) {
                           email = value;
                         },
                         decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your email', prefixIcon: const Icon(Icons.person,color: Colors.deepPurpleAccent))),
+                            hintText: 'Enter your email',
+                            prefixIcon: const Icon(Icons.person,
+                                color: Colors.deepPurpleAccent))),
                     const SizedBox(
                       height: 8.0,
                     ),
                     TextField(
-                        obscureText: true,
-                        textAlign: TextAlign.center,
+                        obscureText: !_isVisible,
+                        textAlign: TextAlign.start,
                         onChanged: (value) {
                           password = value;
                         },
                         decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'Enter your Password', prefixIcon: const Icon(Icons.lock,color: Colors.deepPurpleAccent,))),
+                            hintText: 'Enter your Password',
+                            prefixIcon: const Icon(Icons.security,
+                                color: Colors.deepPurpleAccent),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isVisible = !_isVisible;
+                                  });
+                                },
+                                icon: _isVisible
+                                    ? const Icon(
+                                        Icons.visibility,
+                                        color: Colors.black,
+                                      )
+                                    : const Icon(
+                                        Icons.visibility_off,
+                                        color: Colors.grey,
+                                      )))),
                     const SizedBox(
                       height: 24.0,
                     ),
@@ -76,7 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 50,
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: TextButton(
-                          child: const Text('Login' ,style:TextStyle(color: Colors.white)),
+                          child: const Text('Login',
+                              style: TextStyle(color: Colors.white)),
                           onPressed: () async {
                             setState(() {
                               showSpinner = true;
