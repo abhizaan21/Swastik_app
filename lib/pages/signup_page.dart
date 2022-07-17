@@ -95,10 +95,10 @@ class _SignupPageState extends State<SignupPage> {
                                         children: [
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[600]
-                                                  ?.withOpacity(0.5),
+                                              color: Colors.grey
+                                                  .withOpacity(0.8),
                                               borderRadius:
-                                                  BorderRadius.circular(18),
+                                                  BorderRadius.circular(21),
                                             ),
                                             child: TextField(
                                               keyboardType:
@@ -121,10 +121,9 @@ class _SignupPageState extends State<SignupPage> {
                                           ),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Colors.grey[600]
-                                                  ?.withOpacity(0.5),
+                                              color: Colors.grey.withOpacity(0.8),
                                               borderRadius:
-                                                  BorderRadius.circular(18),
+                                                  BorderRadius.circular(21),
                                             ),
                                             child: TextField(
                                                 obscureText: !_isVisible,
@@ -187,12 +186,11 @@ class _SignupPageState extends State<SignupPage> {
                                                 }
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                  primary:
-                                                      Colors.deepPurpleAccent,
+                                                  primary: Colors.deepPurpleAccent,
                                                   shape: RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              20.0))))),
+                                                              21.0))))),
                                       Row(
                                         children: <Widget>[
                                           const Text("Don't have an account?",style: TextStyle(fontSize: 14,color: Colors.white70)),

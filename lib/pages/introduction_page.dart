@@ -30,7 +30,7 @@ class IntroductionPage extends StatelessWidget {
                 style: TextStyle(color:Colors.black,
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    fontFamily: "Hurricane"),
+                    fontFamily: 'Hurricane'),
               ),
             ),
             const SizedBox(

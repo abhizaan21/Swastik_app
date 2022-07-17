@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
+import 'package:flutter/foundation.dart';
 
 class Storage {
   final firebase_storage.FirebaseStorage storage =
@@ -18,14 +19,16 @@ class Storage {
     try {
       await storage.ref('Uploaded Image/$fileName').putFile(file);
     } on firebase_core.FirebaseException catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
   Future<firebase_storage.ListResult> listFiles() async{
     firebase_storage.ListResult results=await storage.ref('uploaded Image').listAll();
-    results.items.forEach((firebase_storage.Reference ref) {
+    for (var ref in results.items) {
       print('Found a file: $ref');
-    });
+    }
   return results;}
 
 
